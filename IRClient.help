@@ -1,0 +1,100 @@
+This is help file for the IRClient application.
+
+How to use IRClient:
+	The application has no menus. This is a feature, not a bug.
+	As most IRC client uses commands to perform all its tasks, so does IRClient.
+	To be able to successfully use IRClient, you should get familier with the available commands.
+
+
+
+Starting IRClient:
+	By default, IRClient will start a graphical interface (GUI).
+	The application can also be started in curses mode (TUI) by appending a "t" char.
+	WARNING! THIS IMPLEMENTATION HAS BEEN REMOVED AS THE PACKAGE "charva" IS TOO BUGGY!
+	Eg: 
+		java IRClient t
+
+	If desired, the GUI can be specified as well, append a "g" instead of a "t"
+
+
+Available commands:
+	/nick <insert nick>
+		This will change your nick to what you specify.
+		If you use this command in the IRClient buffer, you will change the default nick.
+		If you use this command in any other buffer, you will change your nick for that server.
+
+	/settings
+		Will print out the current settings.
+		Settings can also be found in IRClient.conf
+
+	/help
+		Print this text
+
+	/save
+		Saves current settings to IRClient.conf
+
+	/quit
+		Quits the IRClient application
+
+	/close
+		Closes current buffer.
+
+	/part
+		If on channel: parts channel. Buffer is still available.
+		If on a server: Nothing.
+
+	/connect irc.example.net [PORT]
+		Connects to server irc.example.net
+		If a port was given, which is not 6667, a connection using SSL will be tried.
+
+	/join #channel
+		Joins #channel
+		Not possible in IRClient buffer.
+
+	/query nick
+		Starts a query (PM) with the given nick.
+
+	/me does stuff
+		Standard irc ctcp ACTION command.
+
+
+How to use IRClient.conf:
+	The IRClient.conf is the configuration file that IRClient uses.
+	In this file you can specify your preferred nick with
+
+		nick=myChosenNick
+
+	You can also choose to specify servers that the client should autoconnect to.
+	Examples:
+
+		1) connect=irc.example.com	
+		2) connect=irc.example.com:6667
+		3) connect=irc.example.com,irc.test.org:6667,irc.ex.net
+
+	As can be seen in example 3, you can specify several servers by separating them with a ",".
+	You can also specify the port for each server by separating the servername and port with a ":",
+	as seen in example 2 (and 3).
+
+
+	How strings should be formatted can also be specified by changing the values
+
+		nick_prefix
+		nick_postfix 
+		action_prefix 
+		action_postfix
+		error_prefix
+		error_postfix
+		join_prefix 
+		join_postfix
+		quit_quit 
+		quit_postfix
+		part_prefix 
+		part_postfix
+		network_prefix 
+		network_postfix
+		time_format 
+
+	These can be defined as pleased.
+	The time_format defines the format for the time. Default is HH:mm:ss (eg, 13:24:35).
+	For this to work properly, you need to format it in strftime format, or rather, the way
+	Java SimpleDateFormat likes it.
