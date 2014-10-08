@@ -13,7 +13,7 @@ IRClient
 
 IRClient is a simple Java IRC client.
 
-I can connect to both unencrypted ports as well
+It can connect to both unencrypted ports as well
 as encrypted (using SSL) ports on any server.
 
 To properly be able to use IRClient, you should
